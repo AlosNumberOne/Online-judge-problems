@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+   int test,num_kid,height,length;
+	scanf("%d", &test);
+	for(int i=1;i<=test;i++){
+		scanf("%d", &num_kid);
+		int a[num_kid],b[num_kid];
+		for(int j=0;j<num_kid;j++){
+			cin>>a[j]; 
+		}
+           		for(int k=0;k<num_kid;k++){
+			cin>>b[k];  
+		}
+		
+		sort(a, a+num_kid);
+		sort(b, b+num_kid);
+		int sum= 0 ;
+		for (int i=0; i<num_kid; i++)
+			 sum = sum + abs(a[i]-b[i]);
+           printf("Case %d: %d\n", i,sum);
+	}
+      return 0;
+}
