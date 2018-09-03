@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+using namespace std;
+int Triangles(int arr[], int n)
+{
+	int counter = 0;
+ 
+        sort(arr,arr+n); //sort the array in non-decreasing order
+	
+	for (int i = 0; i < n-2; ++i)     // fix the first element
+	{
+		
+		int k = i+2;             // fix the third element (this is the largest one among three elements as array is sorted)
+ 
+		for (int j = i+1; j < n; ++j)    //fix the second element
+		{
+			while (k < n && arr[i] + arr[j] > arr[k])        //checking triangle property
+			        ++k;
+			counter += (k - j -1);//total number of possible triangles that can be formed
+		}
+	}
+ 
+	return counter;
+}
+ 
+int main()
+{
+	int n;
+	cin>>n;
+	int arr[n];
+	for(int i=0;i<n;i++)
+	cin>>arr[i];
+	int ans=Triangles(arr,n);
+	cout<<ans<<endl;
+	
+ 
+	return 0;
+}
